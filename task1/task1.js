@@ -2,7 +2,19 @@ function isSwapped(A) {
   if (isSorted(A)) {
     return true;
   }
-  return false;
+  for (var i = 0; i < A.length; i++) {
+    for (var j = 0; j < A.length; j++) {
+      if (A[i] > A[j]) {
+        var temp = A[i];
+        A[i] = A[j];
+        A[j] = temp;
+        if (isSorted(A)) {
+          return true;
+        }
+        return false;
+      }
+    }
+  }
 }
 function isSorted(arr) {
   for (var i = 0; i < arr.length; i++) {
